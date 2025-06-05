@@ -1,18 +1,31 @@
+import DIP.GestorInventario;
+import DIP.RepositorioProductos;
+import DIP.RepositorioProductosEnMemoria;
+import ISP.Descargable;
+import ISP.Enviable;
 import LSP.Producto;
 import LSP.ProductoDigital;
 import LSP.ProductoFisico;
 
 public class Main {
     public static void main(String[] args) {
-        RepositorioProducto repositorio = new RepositorioProductoMemoria();
+        RepositorioProductos repositorio = new RepositorioProductosEnMemoria();
         GestorInventario gestor = new GestorInventario(repositorio);
 
-        Producto fisico = new ProductoFisico("Laptop", 1200.00);
-        Producto digital = new ProductoDigital("Antivirus", 49.99);
+        Producto libro = new ProductoFisico("Libro Java", 29.99, 0.5);
+        Producto juego = new ProductoDigital("Juego Indie Versión Digital", 9.99, 150.0);
 
-        gestor.registrarProducto(fisico);
-        gestor.registrarProducto(digital);
+        gestor.registrarProducto(libro);
+        gestor.registrarProducto(juego);
 
-        gestor.mostrarProductos();
+        gestor.mostrarInventario();
+
+        if (libro instanceof Enviable) {
+            ((Enviable) libro).enviar("Calle 12 Carrera 25 Esquina Edificio Punto sur");
+        }
+
+        if (juego instanceof Descargable) {
+            ((Descargable) juego).descargar();
+        }
     }
 }
