@@ -1,6 +1,7 @@
 import LSP.Producto;
 import LSP.ProductoDigital;
 import LSP.ProductoFisico;
+import inventario.*;
 
 public class Main {
     public static void main(String[] args) {
