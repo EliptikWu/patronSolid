@@ -26,7 +26,7 @@ public class Main {
         System.out.println("ProductoFisico y ProductoDigital son intercambiables como Producto");
 
         Producto libro = new ProductoFisico("Libro Java", 29.99, 0.5);
-        Producto juego = new ProductoDigital("Juego Indie", 9.99, 150.0);
+        Producto juego = new ProductoDigital("Juego Indie Versión Digital", 9.99, 150.0);
 
         gestorDIP.registrarProducto(libro);
         gestorDIP.registrarProducto(juego);
@@ -51,9 +51,9 @@ public class Main {
         // SRP: Cada clase tiene una responsabilidad única
         SRP.GestorInventario gestorSRP = new SRP.GestorInventario();
 
-        // Productos existentes
-        inventario.ProductoFisico libroFisico = new inventario.ProductoFisico("Clean Code", 35.99, 0.8);
-        inventario.ProductoDigital software = new inventario.ProductoDigital("IDE Premium", 99.99, 500.0);
+        // Productos existentes - usando las clases correctas
+        ProductoFisico libroFisico = new ProductoFisico("Clean Code", 35.99, 0.8);
+        ProductoDigital software = new ProductoDigital("IDE Premium", 99.99, 500.0);
 
         // OCP: Agregamos nuevo tipo sin modificar código existente
         ProductoHibrido cursoOnline = new ProductoHibrido("Curso Java + Certificado", 149.99, 0.1, 2048.0);
@@ -69,8 +69,8 @@ public class Main {
         System.out.println("Valor total: $" + String.format("%.2f", gestorSRP.calcularValorTotal()));
         System.out.println("Precio promedio: $" + String.format("%.2f", gestorSRP.calcularPromedio()));
 
-        inventario.Producto masCaro = gestorSRP.encontrarMasCaro();
-        inventario.Producto masBarato = gestorSRP.encontrarMasBarato();
+        Producto masCaro = gestorSRP.encontrarMasCaro();
+        Producto masBarato = gestorSRP.encontrarMasBarato();
 
         if (masCaro != null) {
             System.out.println("Más caro: " + masCaro.getNombre() + " ($" + masCaro.getPrecio() + ")");

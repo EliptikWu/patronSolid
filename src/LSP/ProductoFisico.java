@@ -27,9 +27,12 @@ public class ProductoFisico implements Producto, Enviable {
         return peso;
     }
 
+    public String getTipo() {
+        return "Físico";
+    }
+
     @Override
     public void enviar(String direccion) {
         System.out.println("Enviando '" + nombre + "' de " + peso + "kg a la dirección: " + direccion);
     }
 }
-

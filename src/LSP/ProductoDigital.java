@@ -13,9 +13,21 @@ public class ProductoDigital implements Producto, Descargable {
         this.tamanoEnMB = tamanoEnMB;
     }
 
-    public String getNombre() { return nombre; }
-    public double getPrecio() { return precio; }
-    public double getTamanoEnMB() { return tamanoEnMB; }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public double getTamanoEnMB() {
+        return tamanoEnMB;
+    }
+
+    public String getTipo() {
+        return "Digital";
+    }
 
     @Override
     public void descargar() {
